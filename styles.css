@@ -259,6 +259,22 @@ body {
 	background-color: var(--color-dark);
 }
 
+a,
+button,
+input,
+textarea,
+svg * {
+	transition-duration: var(--transition-duration);
+}
+
+a {
+	color: var(--color-light);
+}
+
+a:hover {
+	color: var(--color-light-gray)
+}
+
 .container {
 	max-width: calc(var(--container-width) + var(--container-pading-x) * 2);
 	margin-inline: auto;
@@ -268,4 +284,132 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 700;
 	text-transform: uppercase;
+}
+
+.button {
+	display: inline-flex;
+	height: 38px;
+	align-items: center;
+	padding-inline: 26px;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 2;
+	letter-spacing: 1.2px;
+	text-transform: uppercase;
+	background-color: var(--color-light);
+	border: none;
+	border-radius: var(--border-radius);
+	white-space: nowrap;
+}
+
+.button:hover {
+	background-color: var(--color-light-gray);
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	column-gap: 20px;
+}
+
+.header-logo {
+	flex-shrink: 0;
+}
+
+.header-menu-list {
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: 50px;
+}
+
+.header-menu-link {
+	display: inline-flex;
+	align-items: center;
+	column-gap: 7px;
+	height: 90px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 12px;
+	letter-spacing: 1.2px;
+}
+
+.header-menu-link.is-current::after {
+	content: '';
+	height: 5px;
+	width: 5px;
+	background-color: currentColor;
+	border-radius: 50%;
+}
+
+.header-actions {
+	display: flex;
+	column-gap: 40px;
+}
+
+.header-burger-button {
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: center;
+	row-gap: 4px;
+	width: 40px;
+	height: 40px;
+	padding-left: 8px;
+	background-color: transparent;
+	color: var(--color-light);
+	border: var(--border);
+	border-radius: var(--border-radius);
+}
+
+.header-burger-button:hover {
+	color: var(--color-light-gray);
+	border-color: currentColor;
+}
+
+.header-burger-button-line {
+	content: '';
+	width: 6px;
+	height: 1px;
+	background-color: currentColor;
+	box-shadow: 16px 0 0 currentColor;
+}
+
+@media (max-width: 1023px) {
+	.header {
+		flex-wrap: wrap;
+		row-gap: 10px;
+		padding-top: 20px;
+	}
+
+	.header-menu {
+		order: 1;
+		flex-basis: 100%;
+	}
+
+	.header-menu-link {
+		height: 50px;
+	}
+}
+
+@media (max-width: 767px) {
+	.button {
+		padding-inline: 18px;
+	}
+
+	.header {
+		padding-top: 10px;
+	}
+
+	.header-menu-list {
+		column-gap: 24px;
+	}
+
+	.header-menu-link {
+		height: 32px;
+	}
+
+	.header-actions {
+		column-gap: 15px;
+	}
 }
